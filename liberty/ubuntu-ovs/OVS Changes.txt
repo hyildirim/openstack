@@ -1,0 +1,22 @@
+OVS Changes to Lab
+NETWORK NODE
+* edit dhcp_agent.ini
+* edit ml2_conf.ini
+   change firewall_driver
+   add [ovs] section
+   
+* apt-get -y install neutron-plugin-openvswitch-agent
+* configure the bridges
+   ovs-vsctl add-br br-eth1; ovs-vsctl add-port br-eth1 eth1
+# we don't need linuxbridge configuration anymore
+mv /etc/neutron/plugins/ml2/linuxbridge_agent.ini .
+
+
+CONTROLLER NODE
+edit nova.conf
+
+
+COMPUTE NODES
+   ovs-vsctl add-br br-eth3; ovs-vsctl add-port br-eth3 eth3
+   copy ml2_conf.ini from network node
+   mv /etc/neutron/plugins/ml2/linuxbridge_agent.ini .
