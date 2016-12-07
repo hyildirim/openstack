@@ -38,7 +38,7 @@ foreach my $rtr (keys %routers)
         close F;
         if ($northIP && $southIP)
         {
-                my $rtrName = $routers{$rtr];
+                my $rtrName = $routers{$rtr};
                 print "Router $rtrName is active\n";
                 print "North IP : $northIP\n";
                 print "South IP : $southIP\n";
