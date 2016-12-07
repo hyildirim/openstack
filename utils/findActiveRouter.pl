@@ -1,10 +1,10 @@
-@routers = (
-"qrouter-4676e7a5-279c-4114-8674-209f7fd5ab1a",
-"qrouter-7629f5d7-b205-4af5-8e0e-a3c4d15e7677",
-"qrouter-c8b5d5b7-ab57-4f56-9838-0900dc304af6"
-);
+my %routers;
 
-foreach my $rtr (@routers)
+$routers{"4676e7a5-279c-4114-8674-209f7fd5ab1a"} = "NRTR01-GEIX-IAD1-AIR-Internal-PRD01";
+$routers{"7629f5d7-b205-4af5-8e0e-a3c4d15e7677"} = "NRTR01-GEIX-IAD1-AIR-NAT-PRD01";
+$routers{"c8b5d5b7-ab57-4f56-9838-0900dc304af6"} = "NRTR01-GEIX-IAD1-AIR-Public-PRD01";
+
+foreach my $rtr (keys %routers)
 {
 
         my $northIP; my $nortInt;
@@ -38,8 +38,8 @@ foreach my $rtr (@routers)
         close F;
         if ($northIP && $southIP)
         {
-
-                print "Router $rtr is active\n";
+                my $rtrName = $routers{$rtr];
+                print "Router $rtrName is active\n";
                 print "North IP : $northIP\n";
                 print "South IP : $southIP\n";
         }
