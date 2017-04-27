@@ -47,7 +47,7 @@ sub deleteUsers
       chomp; next if (/\+----/); next if (/\| ID/);
       my @a = split(/\|/);
       $userID = trim($a[1]); $userName = trim($a[2]); 
-      if ( length($userID) > 0 && $userName !~ m/admin|cinder|neutron|glance|nova|demo|swift|horizon/ )
+      if ( length($userID) > 0 && $userName !~ m/admin|cinder|neutron|glance|nova|demo|swift|horizon|keystone|heat/ )
       {
          print "Deleting user >$userID< >$userName< \n";
          system("openstack user delete $userID");
