@@ -202,11 +202,20 @@ sub trim
 #-----------------------------------------------------------------------------
 sub deleteAllInstances
 {
+   open (F, "openstack server list |");
+   while (<F>)
+   {
+        chomp; next if (/\+----/); next if (/\| ID/); next if (/PINGER/);
+      my @a = split(/\|/);
+      $instanceID = trim($a[1]); $instanceName = trim($a[2]);
+      print "Deleting Instance [$instanceID] [$instanceName]\n";
+      system("openstack server delete $instanceID");
 
-
+   }
 
    return;
 }
+
 
 #-----------------------------------------------------------------------------
 sub clearRouterGateways
