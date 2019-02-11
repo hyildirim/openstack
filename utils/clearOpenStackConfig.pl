@@ -7,15 +7,15 @@ deleteAllInstances();
 getRouterList(\%routers);
 clearRouterGateways(\%routers);
 deleteRouterInterfaces(\%routers);
-deleteRouters(\%routers);
 deleteSubnets();
 deleteNetworks();
 deletePorts();
 deleteSubnetPools();
 deleteAddressScope();
-deleteProjects();
-deleteUsers();
-deleteDomains();
+deleteRouters(\%routers);
+#deleteProjects();
+#deleteUsers();
+#deleteDomains();
 exit;
 #-----------------------------------------------------------------------------
 sub deleteDomains
